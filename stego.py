@@ -1,6 +1,8 @@
 from flask import Flask, request, jsonify
 from PIL import Image
+from io import BytesIO
 from stegano import lsb
+import requests
 import os
 
 
@@ -9,21 +11,36 @@ app = Flask(__name__)
 @app.route("/", methods=["POST","GET"])
 def process_image():
     if request.method == 'POST':
-        file = request.data('fstego')
-        msg = "info"
-        mmsg = file
 
-        #file = request.files['image']
-        #try:
-        #    img = Image.open(file.stream)
-        #    msg ="sucess"
-        #    mmsg = lsb.reveal(img)
-        #except:
-        #    msg = "error"
-        #    mmsg = "Stego here: Something went wrong. Maybe you are not feeding me with pictures."
+        sfile = request.json['fstego']
+        r = requests.head(sfile)
+
+        #if the headers shows the content is an image. More work needed here, this could be bypassed
+        if r.headers['Content-Type'].startswith("image/"):
+
+            response = requests.get(sfile)
+            sinvestigte = lsb.reveal(BytesIO(response.content))
+
+            #if there is a hidden message, send an alert
+            if sinvestigte != None:
+                msg = "alert"
+                mmsg = "Stego: Roar -> Secret message found."
+
+            #if there is not a hidden message, declare the picture safe
+            else:
+                msg = "safe"
+                mmsg = "Stego: Roar -> the picture is Safe."
+
+        #If the image os not a picture, send an error message
+        else:
+            msg = "error"
+            mmsg = "Stego: You make my cry. Maybe you are not feeding me pictures."
+
+
+    #if not a POST request
     else:
             msg = "info"
-            mmsg = "Stego here: I eat only POST requests. Read more here: https://github.com/bogomil/stego "
+            mmsg = "Stego: Hm, I eat only POST Requests. Read more here: https://github.com/bogomil/stego"
 
     return jsonify({'status': msg, 'message': mmsg})
 
