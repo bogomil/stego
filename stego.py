@@ -9,10 +9,10 @@ app = Flask(__name__)
 @app.route("/", methods=["POST","GET"])
 def process_image():
     if request.method == 'POST':
-        file = request.args.get('somekey')
+        file = request.data('fstego')
         msg = "info"
         mmsg = file
-        
+
         #file = request.files['image']
         #try:
         #    img = Image.open(file.stream)
