@@ -3,7 +3,7 @@ Hello. I am Stego. I am a steganography dinosaur who helps you discover concrete
 
 Feed me your pictures, and I will detect a secret message or a malicious code in it.
 
-I eat only POST and my mount is open in here:
+I eat only POST and my mount is open in here: https://stegoapi.herokuapp.com/
 
 Roar,
 Your Stego
