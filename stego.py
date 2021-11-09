@@ -9,15 +9,18 @@ app = Flask(__name__)
 @app.route("/", methods=["POST","GET"])
 def process_image():
     if request.method == 'POST':
-
-        file = request.files['image']
-        try:
-            img = Image.open(file.stream)
-            msg ="sucess"
-            mmsg = lsb.reveal(img)
-        except:
-            msg = "error"
-            mmsg = "Stego here: Something went wrong. Maybe you are not feeding me with pictures."
+        file = request.args.get('somekey')
+        msg = "info"
+        mmsg = file
+        
+        #file = request.files['image']
+        #try:
+        #    img = Image.open(file.stream)
+        #    msg ="sucess"
+        #    mmsg = lsb.reveal(img)
+        #except:
+        #    msg = "error"
+        #    mmsg = "Stego here: Something went wrong. Maybe you are not feeding me with pictures."
     else:
             msg = "info"
             mmsg = "Stego here: I eat only POST requests. Read more here: https://github.com/bogomil/stego "
