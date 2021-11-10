@@ -48,17 +48,20 @@ def process_image():
                 mmsg = "Stego: Roar -> the picture is Safe."
                 smessage = ""
 
+
         #If the image os not a picture, send an error message
         else:
             msg = "error"
             mmsg = "Stego: You make my cry. Maybe you are not feeding me pictures."
             smessage = ""
 
-    #if not a POST request. Maybefind an elegant solution
+
+    #if not a POST request. Mayb efind an elegant solution
     else:
             msg = "info"
             mmsg = "Stego: Hm, I eat only POST Requests. Read more here: https://github.com/bogomil/stego"
             smessage = ""
+            rstego = ""
 
     return stg_construct_json(msg, mmsg, rstego, smessage)
 
