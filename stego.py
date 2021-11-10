@@ -114,6 +114,7 @@ def process_url():
     else:
             msg = "info"
             mmsg = "Stego: Hm, I eat only POST Requests. Read more here: https://github.com/bogomil/stego"
+            url = ""
 
     return stg_construct_json(msg, mmsg, url)
 
