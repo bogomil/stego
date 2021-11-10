@@ -1,4 +1,6 @@
 # Stego
+![Stego Logo](https://github.com/bogomil/stego/img/slogo.png | width=100)
+
 Hello. I am Stego. I am a steganography dinosaur who helps you discover concrete threats on the internet.
 
 Feed me your pictures, and I will detect a secret message or a malicious code in it.
