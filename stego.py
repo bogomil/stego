@@ -118,7 +118,7 @@ def process_url():
 
     return stg_construct_json(msg, mmsg, url)
 
-
+#For Heroku this must be like that.
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
