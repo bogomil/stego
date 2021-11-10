@@ -76,17 +76,13 @@ https://stegoapi.herokuapp.com/
 
 * **Sample Call: Python**
 
-  ```python
-  import requests
-
- url = 'https://stegoapi.herokuapp.com/'
-
- #this one contains a hidden message
- #s_url= "https://talkweb.eu/wp-content/uploads/2021/01/secret.png"
-
- s_url = "https://1gr.cz/o/newspaper/images/vyber-mfd-3.png"
-
- stego_obj = {'rstego': s_url}
- r = requests.post(url, json = stego_obj)
- print(r.content)
- ```
+```python
+import requests
+url = 'https://stegoapi.herokuapp.com/'
+#this one contains a hidden message
+#s_url= "https://talkweb.eu/wp-content/uploads/2021/01/secret.png"
+s_url = "https://1gr.cz/o/newspaper/images/vyber-mfd-3.png"
+stego_obj = {'rstego': s_url}
+r = requests.post(url, json = stego_obj)
+print(r.content)
+```
