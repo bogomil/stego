@@ -57,12 +57,12 @@ https://stegoapi.herokuapp.com/
 
 *  **Request Params**
 
-   `rstego=[valid image url]`
+  `rstego=[valid image url]`
 
 
 * **Json Request format**
 
- ` {'rstego': [valid image url]}`
+  `{'rstego': [valid image url]}`
 
 * **Response:**
 
@@ -76,8 +76,8 @@ https://stegoapi.herokuapp.com/
 
 * **Sample Call: Python**
 
-  ````
- import requests
+  ```python
+  import requests
 
  url = 'https://stegoapi.herokuapp.com/'
 
@@ -89,4 +89,4 @@ https://stegoapi.herokuapp.com/
  stego_obj = {'rstego': s_url}
  r = requests.post(url, json = stego_obj)
  print(r.content)
- ````
+ ```
