@@ -1,5 +1,5 @@
 # Stego
-![Stego Logo](https://github.com/bogomil/stego/img/slogo.png | width=100)
+![Stego Logo](https://github.com/bogomil/stego/blob/main/img/slogo.png?raw=true)
 
 Hello. I am Stego. I am a steganography dinosaur who helps you discover concrete threats on the internet.
 
@@ -30,6 +30,8 @@ There are (at least)  three main reasons for using steganography from bad actor
 
 
 # Stego Use-Cases
+
+![Stego Logo](https://github.com/bogomil/stego/blob/main/img/addon.png?raw=true)
 
 - Create a browser plugin to check if the page you visit contains images with something in it.
 - Check if someone is exposing trade secrets in the pictures posted on your website.
