@@ -40,7 +40,7 @@ There are (at least)  three main reasons for using steganography from bad actor
 ### Base Url
 https://stegoapi.herokuapp.com/
 
-## Check a *single image* for a hidden image (default)
+## 1. Checks a *single image* for a hidden image (default)
 
 * **Route**
 
@@ -48,21 +48,21 @@ https://stegoapi.herokuapp.com/
 
 * **Method:**
 
- `POST`
+`POST`
 
 
  * **Request format:**
 
-  `JSON`
+`JSON`
 
 *  **Request Params**
 
-  `rstego=[valid image url]`
+`rstego=[valid image url]`
 
 
 * **Json Request format**
 
-  `{'rstego': [valid image url]}`
+`{'rstego': [valid image url]}`
 
 * **Response:**
 
@@ -82,6 +82,48 @@ url = 'https://stegoapi.herokuapp.com/'
 #this one contains a hidden message
 #s_url= "https://talkweb.eu/wp-content/uploads/2021/01/secret.png"
 s_url = "https://1gr.cz/o/newspaper/images/vyber-mfd-3.png"
+stego_obj = {'rstego': s_url}
+r = requests.post(url, json = stego_obj)
+print(r.content)
+```
+
+## 2. Checks a URL for hidden image content
+*Under development: See the response section for the limitation*
+
+* **Route**
+
+ /url
+
+* **Method:**
+
+`POST`
+
+
+ * **Request format:**
+
+`JSON`
+
+*  **Request Params**
+
+`rstego=[valid url]`
+
+
+* **Json Request format**
+
+`{'rstego': [valid url]}`
+
+* **Response:**
+
+ Currently returns a json response with all the images discovered in that URL.
+
+
+* **Sample Call: Python**
+
+```python
+import requests
+#note the new route /url
+url = 'https://stegoapi.herokuapp.com/url'
+s_url = "https://talkweb.eu/c/lean-agile/"
 stego_obj = {'rstego': s_url}
 r = requests.post(url, json = stego_obj)
 print(r.content)
