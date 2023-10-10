@@ -42,7 +42,7 @@ There are (at least)  three main reasons for using steganography from bad actor
 # Stego API Documentation
 ----
 ### Base Url
-https://stegoapi.herokuapp.com/
+https://web-production-32ac.up.railway.app/
 
 ## 1. Checks a *single image* for a hidden image (default)
 
@@ -82,13 +82,15 @@ https://stegoapi.herokuapp.com/
 
 ```python
 import requests
-url = 'https://stegoapi.herokuapp.com/'
-#this one contains a hidden message
-#s_url= "https://talkweb.eu/wp-content/uploads/2021/01/secret.png"
+import json
+
+url = 'https://web-production-32ac.up.railway.app/'
 s_url = "https://1gr.cz/o/newspaper/images/vyber-mfd-3.png"
 stego_obj = {'rstego': s_url}
 r = requests.post(url, json = stego_obj)
-print(r.content)
+json_output = json.dumps(r.json(), indent=2)
+
+print(json_output)
 ```
 
 ## 2. Checks a URL for hidden image content
@@ -125,10 +127,13 @@ print(r.content)
 
 ```python
 import requests
-#note the new route /url
-url = 'https://stegoapi.herokuapp.com/url'
-s_url = "https://talkweb.eu/c/lean-agile/"
+import json
+
+url = 'https://web-production-32ac.up.railway.app/'
+s_url = "https://talkweb.eu/wp-content/uploads/2021/01/secret.png"
 stego_obj = {'rstego': s_url}
 r = requests.post(url, json = stego_obj)
-print(r.content)
+json_output = json.dumps(r.json(), indent=2)
+
+print(json_output)
 ```
